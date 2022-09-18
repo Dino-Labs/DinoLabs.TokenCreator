@@ -1,0 +1,66 @@
+{
+  "name": "Regular",
+  "count": 7000,
+  "features": {
+    "body": {
+      "green": 3,
+      "brown": 5,
+      "blue": 4,
+      "pink": 4,
+      "grey": 5
+    },
+    "belly": {
+      "yellow": 3,
+      "sandstone": 5,
+      "rose": 3,
+      "gray": 4,
+      "brown": 3
+    },
+    "teeth": {
+      "blank": 6,
+      "round": 4,
+      "hippo": 2,
+      "small": 4
+    },
+    "spots": {
+      "blank": 6,
+      "stripes": 3,
+      "small spots": 3,
+      "large spots": 4,
+      "zigzag": 2
+    },
+    "bellybutton": {
+      "cross": 4,
+      "spiral": 2,
+      "round": 2
+    },
+    "eyes": {
+      "angry": 3,
+      "regular": 8,
+      "happy": 2,
+      "excited": 1,
+      "insidious": 3,
+      "bored": 2,
+      "relaxed": 1
+    },
+    "hand prop": {
+      "blank": 30,
+      "watermelon": 3,
+      "thumb": 4,
+      "token": 2,
+      "pet": 1,
+      "alarm clock": 2,
+      "egg": 3
+    },
+    "background": {
+      "aqua": 3,
+      "violette": 2,
+      "sandstone": 4,
+      "olive": 5,
+      "khaki": 2,
+      "orange": 2,
+      "beige": 4,
+      "color stripes": 1
+    }
+  }
+}

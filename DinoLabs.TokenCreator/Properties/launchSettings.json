@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DinoLabs.TokenCreator": {
+      "commandName": "Project",
+      "commandLineArgs": "draw -s C:\\Users\\rosie\\source\\repos\\DinoLabs.TokenCreator\\DinoLabs.TokenCreator\\regular.json -o C:\\Users\\rosie\\source\\repos\\DinoLabs.TokenCreator\\DinoLabs.TokenCreator\\output.json"
+    }
+  }
+}
