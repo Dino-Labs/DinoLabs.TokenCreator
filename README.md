@@ -19,18 +19,18 @@ Input file has format as below:
 
 ```json
 {
-	"name": "CryptoDino",
-	"count": 7000,
-	"features": {
-		"body": {
-			"green": 3,
-			"brown": 5,
-			"blue": 4,
-			"pink": 4,
-			"grey": 5
-		},
-		...
-	}
+  "name": "CryptoDino",
+  "count": 7000,
+  "features": {
+    "body": {
+      "green": 3,
+      "brown": 5,
+      "blue": 4,
+      "pink": 4,
+      "grey": 5
+    },
+    ...
+  }
 }
 ```
 
