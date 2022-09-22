@@ -46,7 +46,7 @@ namespace DinoLabs.TokenCreator
 
             var color = Console.BackgroundColor;
             Console.BackgroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Duplicates: {name}: {vectors.Sum(x => x.Count)}");
+            Console.WriteLine($"Duplicates: {name}: {vectors.Where(x => x.Count > 1).Sum(x => x.Count)}");
             Console.BackgroundColor = color;
             foreach (var vector in vectors.Where(x => x.Count > 1))
             {
@@ -58,7 +58,7 @@ namespace DinoLabs.TokenCreator
             Console.WriteLine("End of duplicates");
             CheckWeights(features, vectors);
 
-            File.WriteAllText(output, JsonSerializer.Serialize(vectors));
+            File.WriteAllText(output, JsonSerializer.Serialize(vectors, new JsonSerializerOptions {  WriteIndented = true }));
         }
 
         private static void CheckWeights(Feature[] regularFeatures, List<Vector> regular)

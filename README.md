@@ -49,3 +49,6 @@ DinoLabs.TokenCreator.exe generate -s tokens.json -o Images
 ```
 DinoLabs.TokenCreator.exe upload -s Images -p pinata --apiKey abcd
 ```
+
+## Building and running
+To build this tool you need .NET 6 SDK. In order to run the tool you need .NET 6 Runtime
