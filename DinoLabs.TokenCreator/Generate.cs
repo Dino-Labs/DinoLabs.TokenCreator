@@ -41,15 +41,14 @@ namespace DinoLabs.TokenCreator
         {
             Directory.CreateDirectory(Path.Combine(options.Path, "output"));
             var layers = LoadLayers(options.Layers);
-            int i = 0;
-            await foreach (var token in LoadTokens(options.Tokens))
+            Parallel.ForEach(LoadTokens(options.Tokens), (token, state, index) =>
             {
-                CreateToken(i++, token, layers, options.Path, options.Mode);
-            }
+                CreateToken(index, token, layers, options.Path, options.Mode);
+            });
             return 0;
         }
 
-        private static void CreateToken(int index, IDictionary<string, string> token, string[] layers, string path, MissingImageMode mode)
+        private static void CreateToken(long index, IDictionary<string, string> token, string[] layers, string path, MissingImageMode mode)
         {
             var layerPath = GetLayerPath(layers[0], token, path);
             using var @base = Image.Load(layerPath);
@@ -102,10 +101,10 @@ namespace DinoLabs.TokenCreator
             return JsonSerializer.Deserialize<string[]>(file);
         }
 
-        private static IAsyncEnumerable<Dictionary<string, string>> LoadTokens(string tokens)
+        private static List<Dictionary<string, string>> LoadTokens(string tokens)
         {
             var file = File.OpenRead(tokens);
-            return JsonSerializer.DeserializeAsyncEnumerable<Dictionary<string, string>>(file);
+            return JsonSerializer.Deserialize<List<Dictionary<string, string>>>(file);
         }
     }
 }

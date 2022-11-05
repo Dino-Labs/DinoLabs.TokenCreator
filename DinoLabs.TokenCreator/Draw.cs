@@ -1,5 +1,7 @@
 ﻿using CommandLine;
 using System.Collections;
+using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
@@ -58,7 +60,20 @@ namespace DinoLabs.TokenCreator
             Console.WriteLine("End of duplicates");
             CheckWeights(features, vectors);
 
+            File.WriteAllText(output + ".csv", SerializeCsv(vectors));
+
             File.WriteAllText(output, JsonSerializer.Serialize(vectors, new JsonSerializerOptions {  WriteIndented = true }));
+        }
+
+        private static string SerializeCsv(List<Vector> vectors)
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine(string.Join(",", vectors.First().Key.Select(x => x.Feature)));
+            foreach (var vector in vectors)
+            {
+                sb.AppendLine(string.Join(",", vector.Key.Select(x => x.Value)));
+            }
+            return sb.ToString();
         }
 
         private static void CheckWeights(Feature[] regularFeatures, List<Vector> regular)
